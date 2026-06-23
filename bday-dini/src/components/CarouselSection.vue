@@ -39,13 +39,13 @@ onMounted(() => {
 
     <div class="px-6 mb-8 text-center relative z-10">
       <h2 class="text-3xl font-fairy text-gray-800 drop-shadow-sm">
-        Memories <span class="text-rose-500">Lane</span> 📸
+        Princess <span class="text-rose-500">Dini</span> 📸
       </h2>
-      <p class="text-rose-400 text-xs mt-1 font-bold tracking-wide">Beberapa momen kita...</p>
+      <p class="text-rose-400 text-xs mt-1 font-bold tracking-wide">Dengan semua mood nya..</p>
     </div>
 
     <div v-if="isFetching" class="px-6 text-rose-400 text-sm animate-pulse text-center relative z-10">
-      Memuat kenangan manis...
+      Memuat Foto Princess Dini
     </div>
 
     <div v-else class="flex overflow-x-auto gap-6 px-8 pb-12 snap-x snap-mandatory scrollbar-hide relative z-10 items-center">
@@ -64,7 +64,8 @@ onMounted(() => {
           class="w-full h-full object-cover rounded-sm shadow-inner"
         />
         
-        <p class="absolute bottom-3 left-0 w-full text-center font-fairy text-rose-500 text-lg px-2 truncate">
+        <!-- Font dikecilin jadi 15px, truncate dihapus ganti line-clamp-2 biar bisa 2 baris -->
+        <p class="absolute bottom-2 left-0 w-full text-center font-cochin italic text-rose-500 text-[15px] font-medium px-3 leading-snug line-clamp-2">
           {{ formatCaption(photo.filename) }}
         </p>
       </div>

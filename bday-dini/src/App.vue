@@ -6,6 +6,7 @@ import SplashScreen from './components/SplashScreen.vue'
 import HeroSection from './components/HeroSection.vue'
 import MessageSection from './components/MessageSection.vue'
 import CarouselSection from './components/CarouselSection.vue'
+import VideoSection from './components/VideoSection.vue'
 
 const isOpened = ref(false) 
 const heroImage = ref('')
@@ -30,7 +31,6 @@ const fetchPhotos = async () => {
     .filter(file => file.name !== '.emptyFolderPlaceholder') 
     .map(file => {
       const { data } = supabase.storage.from('bday-gallery').getPublicUrl(`gallery/${file.name}`)
-      // Mengirim URL dan Nama File untuk dijadikan caption
       return {
         url: data.publicUrl,
         filename: file.name
@@ -39,7 +39,6 @@ const fetchPhotos = async () => {
   isFetching.value = false
 }
 
-// Fungsi dipanggil pas tombol Splash Screen diklik
 const openSurprise = () => {
   isOpened.value = true
   window.scrollTo(0, 0)
@@ -50,7 +49,6 @@ const openSurprise = () => {
   }
 }
 
-// Fungsi dipanggil pas layar nyentuh Carousel
 const switchToCjr = () => {
   if(audioHbd.value && audioCjr.value) {
     audioHbd.value.pause() 
@@ -67,7 +65,6 @@ onMounted(() => {
 <template>
   <main class="bg-rose-50 text-gray-800 font-jakarta overflow-x-hidden w-full min-h-screen bg-pattern">
     
-    <!-- Element Audio tersembunyi (Pastikan hbd.mp3 & cjr.mp3 ada di folder public/) -->
     <audio ref="audioHbd" src="/hbd.mp3"></audio>
     <audio ref="audioCjr" src="/cjr.mp3"></audio>
 
@@ -79,9 +76,10 @@ onMounted(() => {
       <HeroSection :heroImage="heroImage" />
       <MessageSection />
       <CarouselSection :photoList="photoList" :isFetching="isFetching" @triggerAudio="switchToCjr" />
+      <VideoSection />
       
       <footer class="pb-12 text-center relative z-10">
-        <p class="text-rose-400 text-xs font-medium tracking-widest uppercase">✨ Made with love✨</p>
+        <p class="text-rose-400 text-xs font-medium tracking-widest uppercase">✨ Made with love hihi ✨</p>
       </footer>
     </div>
 
@@ -89,9 +87,10 @@ onMounted(() => {
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-.font-fairy { font-family: 'Berkshire Swash', cursive; }
+/* Font Baru */
+.font-cochin { font-family: 'Cochin', Georgia, serif; }
 .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
 
 /* CSS Untuk Ornamen Background Titik-Titik Estetik */
