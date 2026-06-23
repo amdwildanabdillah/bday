@@ -1,37 +1,93 @@
+<script setup>
+import { ref } from 'vue'
+
+const messages = ref([
+  {
+    id: 1,
+    title: 'Selamat!',
+    icon: '🎉',
+    color: 'rose',
+    closedText: 'Ini dibuka pertama yaa 👀', // <-- Ini buat tulisan pas ketutup
+    text: 'Baarakallah Fii Umrik Princess Dinii, selamat ulang tahun yang ke 21. Selamat tambah umur dan bahagia... wkwkwkwkwkwk. selamat memasuki dan menempuh fase selanjutnya.'
+  },
+  {
+    id: 2,
+    title: 'Doa & Harapan',
+    icon: '🌟',
+    color: 'pink',
+    closedText: 'Terus iniii ✨', // <-- Tulisan kartu kedua
+    text: 'Semoga di umur yang baru ini, segala hal baik selalu mengiringi langkah kaki pendekmu wkwkw. Serius, Semoga segala harapan dan impianmu terwujud, Datang hal-hal baik, semoga nasi mu selalu hangat, tidurmu selalu pulas, hari mu selalu baik dan lancar. Semoga hari-harimu selalu diiringi cinta yang gaada habisnya. Dijauhkan dari hal hal buruk. Semoga bisa mendapatkan hal hal yang selama ini diperjuangkan, my best wishes for u.'
+  },
+  {
+    id: 3,
+    title: 'Pesan Kecil',
+    icon: '💌',
+    color: 'red',
+    closedText: 'Ini jugaa 💌', // <-- Tulisan kartu ketiga
+    text: 'Kurang-kurangin jajan sembarangan-nya yaa. Dibenerin pola makan, pola hidupnya. Perbanyak istirahat, jangan terlalu keras sama diri sendiri. Bisa lebih menghargai orang lain ya din... Bisa lebih sabar, lebih tabah, ga marah marah wkwkwkwk. Tetap semangat, You got this Princess.'
+  }
+])
+
+const openStates = ref([false, false, false])
+
+const toggleMessage = (index) => {
+  openStates.value[index] = !openStates.value[index]
+}
+</script>
+
 <template>
-  <section class="px-6 py-12 w-full relative z-20 -mt-8 bg-white/90 backdrop-blur-xl rounded-t-[2rem] border-t border-white shadow-[0_-10px_40px_rgba(244,63,94,0.1)]">
-    
-    <!-- Mengganti font-bold menjadi font-semibold -->
-    <h2 class="text-3xl font-cochin font-semibold text-center text-rose-500 mb-8 drop-shadow-sm">
-      Buat Princess 👸
-    </h2>
-
-    <div class="space-y-4">
-      <div class="bg-rose-50/80 border border-rose-100 p-5 rounded-2xl shadow-sm relative overflow-hidden">
-        <div class="absolute -right-2 -top-1 text-5xl opacity-20">🎉</div>
-        <!-- Mengganti font-fairy menjadi font-cochin italic font-semibold -->
-        <h3 class="font-cochin italic font-semibold text-xl text-rose-600 mb-2 relative z-10">Selamat!</h3>
-        <p class="text-gray-600 text-[13px] leading-relaxed font-medium relative z-10">
-          Baarakallah Fii Umrik Princess Dinii, selamat ulang tahun yang ke 21. Bangga banget liat kamu bisa melewati masa masa suka dan dukamu sampe sekarang.
-        </p>
+  <div class="px-6 space-y-8 relative z-10 pt-6">
+    <div 
+      v-for="(msg, index) in messages" 
+      :key="msg.id"
+      class="relative transition-all duration-500 ease-in-out cursor-pointer"
+      @click="toggleMessage(index)"
+    >
+      
+      <!-- Ikon Badge Melayang -->
+      <div class="absolute -top-6 -left-3 bg-white text-3xl p-2 rounded-full border-[3px] border-[#4C0519] shadow-[4px_4px_0px_0px_#4C0519] z-20 rotate-[-10deg] hover:rotate-0 transition-transform">
+        {{ msg.icon }}
       </div>
 
-      <div class="bg-pink-50/80 border border-pink-100 p-5 rounded-2xl shadow-sm relative overflow-hidden">
-        <div class="absolute -right-2 -top-1 text-5xl opacity-20">🌟</div>
-        <h3 class="font-cochin italic font-semibold text-xl text-pink-600 mb-2 relative z-10">Doa & Harapan</h3>
-        <p class="text-gray-600 text-[13px] leading-relaxed font-medium relative z-10">
-          Semoga di umur yang baru ini, segala hal baik selalu mengiringi langkah kaki pendekmu wkwkw. Dilancarkan rezekinya, dimudahkan urusannya, dan dijauhkan dari hal-hal yang bikin sedih.
-        </p>
+      <!-- Card Tertutup -->
+      <div 
+        v-if="!openStates[index]"
+        class="card-style bg-rose-50 p-6 text-center hover:scale-[1.02] transition-transform"
+      >
+        <!-- Manggil text custom sesuai index-nya -->
+        <h3 class="font-jakarta font-extrabold text-gray-800 tracking-wide mt-2">
+          {{ msg.closedText }}
+        </h3>
       </div>
 
-      <div class="bg-red-50/80 border border-red-100 p-5 rounded-2xl shadow-sm relative overflow-hidden">
-        <div class="absolute -right-2 -top-1 text-5xl opacity-20">💌</div>
-        <h3 class="font-cochin italic font-semibold text-xl text-red-500 mb-2 relative z-10">Pesan Kecil</h3>
-        <p class="text-gray-600 text-[13px] leading-relaxed font-medium relative z-10">
-          Kurang-kurangin <i>jajan sembarangan</i>-nya yaa. Dibenerin pola makan, pola hidupnya. Perbanyak istirahat, jangan terlalu keras sama diri sendiri. Bisa lebih menghargai orang lain ya din... Tetap semangat, <i>You got this Princess</i>
-        </p>
-      </div>
+      <!-- Card Terbuka -->
+<div 
+  v-else
+  class="card-style bg-white p-6 relative overflow-hidden animate-fade-in flex flex-col items-start"
+>
+  <!-- Judul dipaksa rata kiri -->
+  <h3 :class="`font-jakarta font-extrabold text-xl text-${msg.color}-600 mb-3 mt-2 relative z-10 w-full text-left`">
+    {{ msg.title }}
+  </h3>
+  
+  <!-- Garis pembatas dipaksa penuh (w-full) -->
+  <div class="border-t-2 border-dashed border-rose-200 my-3 w-full"></div>
+  
+  <!-- Teks pesan dipaksa rata kiri -->
+  <p class="font-jakarta text-gray-700 text-[13px] leading-relaxed font-semibold relative z-10 w-full text-left">
+    {{ msg.text }}
+  </p>
+</div>
     </div>
-
-  </section>
+  </div>
 </template>
+
+<style>
+@keyframes fadeIn { 
+  from { opacity: 0; transform: translateY(10px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+.animate-fade-in { 
+  animation: fadeIn 0.5s ease-out forwards; 
+}
+</style>

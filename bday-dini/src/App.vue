@@ -103,4 +103,21 @@ onMounted(() => {
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .animate-fade-in { animation: fadeIn 1s ease-in-out forwards; }
+
+:root {
+  --border-color: #4C0519; /* Warna border tegas tapi manis */
+}
+
+.card-style {
+  background-color: white;
+  border: 3px solid var(--border-color); /* Border lebih tebal */
+  border-radius: 16px;                   /* Sedikit rounded biar nggak kaku */
+  box-shadow: 6px 6px 0px 0px var(--border-color); /* Hard shadow */
+  transition: all 0.2s;
+}
+
+.card-style:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px 0px var(--border-color);
+}
 </style>
