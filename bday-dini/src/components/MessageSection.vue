@@ -16,7 +16,7 @@ const messages = ref([
     icon: '🌟',
     color: 'pink',
     closedText: 'Terus iniii ✨', // <-- Tulisan kartu kedua
-    text: 'Semoga di umur yang baru tambahini, segala hal baik selalu mengiringi langkah kaki pendekmu wkwkw. Serius, Semoga segala harapan dan impianmu terwujud, Datang hal-hal baik, semoga nasi mu selalu hangat, tidurmu selalu pulas, hari mu selalu baik dan lancar. Semoga hari-harimu selalu diiringi cinta yang gaada habisnya. Dijauhkan dari hal hal buruk. Semoga bisa mendapatkan hal hal yang selama ini diperjuangkan, my best wishes for u.'
+    text: 'Semoga di umur yang baru tambah ini, segala hal baik selalu mengiringi langkah kaki pendekmu wkwkw. Serius, Semoga segala harapan dan impianmu terwujud, Datang hal-hal baik, semoga nasi mu selalu hangat, tidurmu selalu pulas, hari mu selalu baik dan lancar. Semoga hari-harimu selalu diiringi cinta yang gaada habisnya. Dijauhkan dari hal-hal buruk. Semoga bisa mendapatkan hal hal yang selama ini diperjuangkan, my best wishes for u.'
   },
   {
     id: 3,

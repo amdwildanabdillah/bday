@@ -11,19 +11,19 @@ const videoList = ref([
   {
     id: 1,
     title: 'Komang',
-    videoUrl: 'https://pub-bfe7d1d83328475693640e5f60e060e8.r2.dev/vlog%20ala.mp4', 
+    videoUrl: 'https://zaousgtdtaldujaomwmb.supabase.co/storage/v1/object/public/bday-gallery/video/vlog%20ala.mp4', 
     caption: 'Sebab kau terlalu indah dari sekedar kata'
   },
   {
     id: 2,
     title: 'Message in A Bottle',
-    videoUrl: 'https://pub-bfe7d1d83328475693640e5f60e060e8.r2.dev/_storage_emulated_0_DCIM_Camera_lv_0_20251008014601.mp4', 
+    videoUrl: 'https://zaousgtdtaldujaomwmb.supabase.co/storage/v1/object/public/bday-gallery/video/Message%20In%20a%20Bottle.mp4', 
     caption: 'Cause u could be the one that I love'
   },
   {
     id: 3,
     title: 'Everything You Are',
-    videoUrl: 'https://pub-bfe7d1d83328475693640e5f60e060e8.r2.dev/everiting.mp4', 
+    videoUrl: 'https://zaousgtdtaldujaomwmb.supabase.co/storage/v1/object/public/bday-gallery/video/everiting.mp4', 
     caption: 'Everything U Are apa U Are Everything ?'
   }
 ])
@@ -66,7 +66,12 @@ const videoList = ref([
         <div class="relative w-full aspect-[9/16] bg-gray-900 rounded-lg overflow-hidden border-2 border-rose-100 z-20">
           <video 
   v-if="video.videoUrl" 
-  controls controlsList="nodownload" preload="metadata" 
+  controls 
+  controlsList="nodownload" 
+  preload="metadata" 
+  playsinline 
+  webkit-playsinline 
+  crossorigin="anonymous"
   class="w-full h-full object-cover" 
   :src="video.videoUrl"
   @play="$emit('videoPlayed')" 
@@ -89,10 +94,10 @@ const videoList = ref([
       
       <div class="grid grid-cols-2 gap-4 mb-10">
         <div class="card-style aspect-[3/4] overflow-hidden rotate-[-3deg]">
-          <img src="https://pub-bfe7d1d83328475693640e5f60e060e8.r2.dev/ANZ00122.jpg" class="w-full h-full object-cover">
+          <img src="https://zaousgtdtaldujaomwmb.supabase.co/storage/v1/object/public/bday-gallery/video/Dini%20Senyum.jpg" class="w-full h-full object-cover">
         </div>
         <div class="card-style aspect-[3/4] overflow-hidden rotate-[2deg] translate-y-4">
-          <img src="https://pub-bfe7d1d83328475693640e5f60e060e8.r2.dev/_SNP0090.jpg" class="w-full h-full object-cover">
+          <img src="https://zaousgtdtaldujaomwmb.supabase.co/storage/v1/object/public/bday-gallery/video/Dini%20Mrengut.jpg" class="w-full h-full object-cover">
         </div>
       </div>
 

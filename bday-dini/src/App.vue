@@ -69,7 +69,7 @@ onMounted(() => {
     <div class="fixed bottom-40 right-12 text-6xl text-rose-300 -rotate-12 z-0 opacity-50 animate-bounce">✱</div>
     <div class="fixed top-1/2 -left-8 w-16 h-16 bg-white border-[3px] border-[#4C0519] shadow-[4px_4px_0px_0px_#4C0519] rounded-xl rotate-45 z-0 opacity-40"></div>
 
-    <!-- Audio cuma sisa satu -->
+    <!-- Audio kalo dibuka -->
     <audio ref="bgMusic" src="/lagu-tiktok.mp3" loop></audio>
 
     <transition leave-active-class="transition-all duration-1000 ease-in-out" leave-to-class="opacity-0 scale-110">
@@ -80,7 +80,6 @@ onMounted(() => {
       <HeroSection :heroImage="heroImage" />
       <MessageSection />
       
-      <!-- Carousel udah gak manggil audio lagi -->
       <CarouselSection :photoList="photoList" :isFetching="isFetching" />
       
       <!-- Tambahin event pause lagunya ke VideoSection -->
