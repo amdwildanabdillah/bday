@@ -1,6 +1,10 @@
 <script setup>
 import { ref } from 'vue'
 
+// Emit buat ngirim sinyal ke App.vue kalau video diputar
+const emit = defineEmits(['videoPlayed'])
+
+// Cukup SATU KALI aja nulisnya wkwkwk
 const isNoteOpen = ref(false)
 
 const videoList = ref([
@@ -60,14 +64,20 @@ const videoList = ref([
         <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-14 h-4 bg-white/70 backdrop-blur-sm border border-[#4C0519] shadow-[2px_2px_0px_0px_#4C0519] rotate-[-2deg] z-30"></div>
         
         <div class="relative w-full aspect-[9/16] bg-gray-900 rounded-lg overflow-hidden border-2 border-rose-100 z-20">
-          <video v-if="video.videoUrl" controls controlsList="nodownload" preload="metadata" class="w-full h-full object-cover" :src="video.videoUrl"></video>
+          <video 
+  v-if="video.videoUrl" 
+  controls controlsList="nodownload" preload="metadata" 
+  class="w-full h-full object-cover" 
+  :src="video.videoUrl"
+  @play="$emit('videoPlayed')" 
+></video>
           <div v-else class="w-full h-full flex flex-col items-center justify-center bg-gray-800 text-rose-400">
             <span class="text-4xl mb-2">🎥</span>
             <p class="text-xs font-jakarta tracking-wide">Menunggu memori...</p>
           </div>
         </div>
         
-        <p class="mt-4 font-jakarta text-rose-600 text-[15px] font-bold text-center leading-snug break-words px-2">
+        <p class="mt-4 font-jakarta text-rose-600 text-[15px] font-bold text-center leading-snug break-words px-2 capitalize">
           {{ video.caption }}
         </p>
       </div>
@@ -101,14 +111,21 @@ const videoList = ref([
           <!-- Kondisi Tertutup -->
           <div v-if="!isNoteOpen">
             <p class="text-gray-800 font-jakarta font-extrabold text-lg">
-              Dari hati bangetttt
+              Dari Hati Bangetttt 💖
             </p>
           </div>
 
           <!-- Kondisi Terbuka -->
           <div v-else class="animate-fade-in flex flex-col items-start text-left">
-            <p class="font-jakarta text-gray-700 leading-relaxed font-semibold text-[14px]">
-              "Maaf yaa... selama kita temenan, sering njaraki, sering bikin nggaenak, mungkin bikin nangis. <br><br>
+            <p class="font-jakarta text-gray-700 leading-relaxed font-semibold text-[14px] whitespace-preline">
+              "Sebelomnya, maap yaa bahannya ini tok wkwkwk, ini juga dari file file lama, nyari nyari di galeri, di adobe cloud, di drive, sama ambil dari feed ig mu satu xixixixi.
+              <br><br>
+              Maap juga kalo foto videonya ini ini aja, gaada bahan lagi soalnya hehe, ini buate juga agak buru-buru, tapi tulus kok rill no fek fek.
+              <br><br>
+              Oiyaa, ini gatau video e bisa dibuka lancar apa ngga, kalo kamu cerita sinyale susah, kayae agak lemot hehe.
+              <br><br>
+
+              Maap yaa... selama kita temenan, sering njaraki kamu, sering bikin betmut, bikin nggaenak, mungkin bikin nangis. <br><br>
               Maaf kalo sikapku sering bikin bingung ke kamu juga mungkin, maaf sempet bentak kamu juga waktu itu..<br><br>
               Tetep jadi dini yang baik ya, Makasih tetep mau respon hehe, thanks buat semuanya..<br><br>
               Tetep bahagia dan senyum ya din, asli muanis cuantik ga boong hehe.. nek mara mara mrengut ilang ayu ne ✌"

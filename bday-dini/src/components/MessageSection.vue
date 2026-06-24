@@ -4,7 +4,7 @@ import { ref } from 'vue'
 const messages = ref([
   {
     id: 1,
-    title: 'Selamat!',
+    title: 'Congrats Gurlll !',
     icon: '🎉',
     color: 'rose',
     closedText: 'Ini dibuka pertama yaa 👀', // <-- Ini buat tulisan pas ketutup
@@ -12,15 +12,15 @@ const messages = ref([
   },
   {
     id: 2,
-    title: 'Doa & Harapan',
+    title: 'Pray & Wishes',
     icon: '🌟',
     color: 'pink',
     closedText: 'Terus iniii ✨', // <-- Tulisan kartu kedua
-    text: 'Semoga di umur yang baru ini, segala hal baik selalu mengiringi langkah kaki pendekmu wkwkw. Serius, Semoga segala harapan dan impianmu terwujud, Datang hal-hal baik, semoga nasi mu selalu hangat, tidurmu selalu pulas, hari mu selalu baik dan lancar. Semoga hari-harimu selalu diiringi cinta yang gaada habisnya. Dijauhkan dari hal hal buruk. Semoga bisa mendapatkan hal hal yang selama ini diperjuangkan, my best wishes for u.'
+    text: 'Semoga di umur yang baru tambahini, segala hal baik selalu mengiringi langkah kaki pendekmu wkwkw. Serius, Semoga segala harapan dan impianmu terwujud, Datang hal-hal baik, semoga nasi mu selalu hangat, tidurmu selalu pulas, hari mu selalu baik dan lancar. Semoga hari-harimu selalu diiringi cinta yang gaada habisnya. Dijauhkan dari hal hal buruk. Semoga bisa mendapatkan hal hal yang selama ini diperjuangkan, my best wishes for u.'
   },
   {
     id: 3,
-    title: 'Pesan Kecil',
+    title: 'Advice',
     icon: '💌',
     color: 'red',
     closedText: 'Ini jugaa 💌', // <-- Tulisan kartu ketiga
